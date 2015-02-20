@@ -517,26 +517,13 @@ void application()
   static int t = millis();
   char tmp;
   
-  /*while(1) {
-    analogWrite(LED_PIN(RED), 10);
-    delay(1500);
-    analogWrite(LED_PIN(RED), 0);
-    analogWrite(LED_PIN(GREEN), 10);
-    delay(1500);
-    analogWrite(LED_PIN(GREEN), 0);
-    analogWrite(LED_PIN(BLUE), 10);
-    delay(1500);
-    analogWrite(LED_PIN(BLUE), 0);
-  }*/
   captouch_get_readings();
   captouch_process_readings();
-//  captouch_print_debug();
-//  return;
+  //captouch_print_debug();
   
   ds_get_reading();
   ds_reading_to_distance();
-//  ds_print_debug();
-//  return;
+  //ds_print_debug();
   
   if (power != power_off) {
     tmp = process_captouch_keys(&Lab, &Lab_target);
@@ -551,6 +538,7 @@ void application()
     captouch.prev_keys_time = millis() - CAP_TIME_WAIT_AFTER_KEY_RELEASE;
   
   process_ds_distance(&Lab, &Lab_target, &power);
+  Serial.println(power, DEC);;
   /*Serial.print("Lab current: ");
   cs_print_Lab(&Lab);
   Serial.print("Lab target:  ");
@@ -577,7 +565,7 @@ void application()
 
   if (power != power_off) {
     //cs_print_Lab(&Lab_current);
-    cs_print_RGB(&RGB);
+    //cs_print_RGB(&RGB);
     if (cs_linear_prev.r != cs_linear.r) {
       analogWrite(LED_PIN(RED), (int) (255 * (cs_linear.r)));
       cs_linear_prev.r = cs_linear.r;

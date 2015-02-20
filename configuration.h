@@ -36,7 +36,13 @@
 /* Lightness (L) values of highest intensity red (0xFF0000), green (0x00FF00)
  * and blue (0x0000FF) are 53.233, 87.737 and 32.303. --> Choose 32.303 as maximum
  * lightness. That way, full color spectrum is available at highest lightness. */
+//#define CS_LAB_MAX_L 32.303
 #define CS_LAB_MAX_L 53.233
+
+//#define CS_LAB_WHITE_POINT_A 0
+//#define CS_LAB_WHITE_POINT_B 0
+#define CS_LAB_WHITE_POINT_A 10
+#define CS_LAB_WHITE_POINT_B 30
 
 /* Enable next line to test electronics. This will repeatedly show red, green and blue
  * in low and high intensity. The serial port will show raw and processed values of
