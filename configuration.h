@@ -25,6 +25,19 @@
 /* CS_LAB_STEP_SIZE_L defines the speed at which the lightness changes */
 #define CS_LAB_STEP_SIZE_L 1
 
+/* Lightness (L) values of lowest intensity red (0x010000), green (0x000100)
+ * blue (0x000001) and white (0x010101) are 0.058, 0.196, 0.020 and 0.274. 
+ * --> Choose 0.274 as minimum lightness. That way, lamp power state will never be 
+ * on with a lightness that is so low that the actual output value is 0x000000 (and 
+ * thus appears to be off, causing potential confusion to the user). */
+//#define CS_LAB_MIN_L 0.196
+#define CS_LAB_MIN_L 0.274
+
+/* Lightness (L) values of highest intensity red (0xFF0000), green (0x00FF00)
+ * and blue (0x0000FF) are 53.233, 87.737 and 32.303. --> Choose 32.303 as maximum
+ * lightness. That way, full color spectrum is available at highest lightness. */
+#define CS_LAB_MAX_L 53.233
+
 /* Enable next line to test electronics. This will repeatedly show red, green and blue
  * in low and high intensity. The serial port will show raw and processed values of
  * captouch and distance sensors. An example output is shown here:

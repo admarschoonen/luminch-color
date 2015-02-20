@@ -16,21 +16,6 @@
 #define CS_RGB_N_STEPS 589
 #define CS_RGB_STEP_SIZE (1.0 / CS_RGB_N_STEPS)
 #define CS_RGB_SMALLEST_POSITIVE (3 * CS_RGB_STEP_SIZE)
-/* Lightness (L) values of lowest intensity red (0x010000), green (0x000100)
- * blue (0x000001) and white (0x010101) are 0.058, 0.196, 0.020 and 0.274. 
- * --> Choose 0.274 as minimum lightness. That way, lamp power state will never be 
- * on with a lightness that is so low that the actual output value is 0x000000 (and 
- * thus appears to be off, causing potential confusion to the user). */
-#define CS_LAB_MIN_L 0.196
-/* Lightness (L) values of highest intensity red (0xFF0000), green (0x00FF00)
- * and blue (0x0000FF) are 53.233, 87.737 and 32.303. --> Choose 32.303 as maximum
- * lightness. That way, full color spectrum is available at highest lightness. */
-#define CS_LAB_MAX_L 53.233 /* 100.000 */
-//#define CS_LAB_MIN_A -110 /*-85*/ /* -86.185 */
-//#define CS_LAB_MAX_A 110 /*95*/ /* 98.254 */
-//#define CS_LAB_MIN_B -110 /*-105*/ /* -107.864 */
-//#define CS_LAB_MAX_B 110 /*90*/ /* 94.482 */
-//#define CS_RGB_SMALLEST_POSITIVE (1 * CS_RGB_STEP_SIZE)
 
 #define CS_LAB_WHITE_POINT_L 50
 //#define CS_LAB_WHITE_POINT_A 0

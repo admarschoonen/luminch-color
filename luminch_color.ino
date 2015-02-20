@@ -64,14 +64,6 @@
 #define END_TRACKING_CYCLES 210
 #define HAND_MINIMUM_CHANGE 15
 
-/* for some reason, compiler gives an error that pwoer_state_t has not be declared when using the following construct:
-typedef enum {
-  power_off,
-  power_off_to_on,
-  power_on,
-  power_on_to_off
-} power_state_t;
-*/
 #define power_off 0
 #define power_off_to_on 1
 #define power_on 2
