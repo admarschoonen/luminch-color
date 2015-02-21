@@ -5,18 +5,20 @@
 #define DS_SENSOR_SHARP_GP2Y0A21YK 1
 
 /* Maxim: use DS_SENSOR_SHARP_GP2Y0A21YK */
-#define DS_SENSOR DS_SENSOR_SHARP_GP2Y0A21YK
+//#define DS_SENSOR DS_SENSOR_SHARP_GP2Y0A21YK
 /* Admar: use DS_SENSOR_SHARP_GP2Y0A02YK */
-//#define DS_SENSOR DS_SENSOR_SHARP_GP2Y0A02YK
+#define DS_SENSOR DS_SENSOR_SHARP_GP2Y0A02YK
 
 /* DS_CLOSEST and DS_FARTHEST define the range in which the lamp should operate */
 
 #if (DS_SENSOR == DS_SENSOR_SHARP_GP2Y0A21YK)
 #define DS_CLOSEST 150
 #define DS_FARTHEST 440
+#define DS_INFINITY 750
 #else
 #define DS_CLOSEST 210
 #define DS_FARTHEST 500
+#define DS_INFINITY 750
 #endif
 
 /* CS_LAB_STEP_SIZE_AB defines the speed at which the color changes */
@@ -36,13 +38,13 @@
 /* Lightness (L) values of highest intensity red (0xFF0000), green (0x00FF00)
  * and blue (0x0000FF) are 53.233, 87.737 and 32.303. --> Choose 32.303 as maximum
  * lightness. That way, full color spectrum is available at highest lightness. */
-//#define CS_LAB_MAX_L 32.303
-#define CS_LAB_MAX_L 53.233
+#define CS_LAB_MAX_L 32.303
+//#define CS_LAB_MAX_L 53.233
 
-//#define CS_LAB_WHITE_POINT_A 0
-//#define CS_LAB_WHITE_POINT_B 0
-#define CS_LAB_WHITE_POINT_A 10
-#define CS_LAB_WHITE_POINT_B 30
+#define CS_LAB_WHITE_POINT_A 0
+#define CS_LAB_WHITE_POINT_B 0
+//#define CS_LAB_WHITE_POINT_A 10
+//#define CS_LAB_WHITE_POINT_B 30
 
 /* Enable next line to test electronics. This will repeatedly show red, green and blue
  * in low and high intensity. The serial port will show raw and processed values of

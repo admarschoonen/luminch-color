@@ -99,6 +99,7 @@ void setup()
   led_init();
   captouch_init();
   Serial.begin(115200);
+  Serial.println("Luminch Color!");
 }
 
 void serial_write(char *s)
@@ -429,7 +430,7 @@ void process_ds_distance(cs_Lab_t *Lab, cs_Lab_t *Lab_target, char *power) {
       //Serial.print("hand present; counter: ");
       //Serial.println(ds_hand_present_counter, DEC);
     }
-  } else {
+  } else if (ds.distance >= DS_INFINITY) {
     /* hand is not present */
     if (ds_hand_present_counter > 0) {
       /* hand was present */
