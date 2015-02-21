@@ -41,8 +41,8 @@
 #define CS_LAB_MAX_L 32.303
 //#define CS_LAB_MAX_L 53.233
 
-#define CS_LAB_WHITE_POINT_A 0
-#define CS_LAB_WHITE_POINT_B 0
+#define CS_LAB_WHITE_POINT_A 2
+#define CS_LAB_WHITE_POINT_B 6
 //#define CS_LAB_WHITE_POINT_A 10
 //#define CS_LAB_WHITE_POINT_B 30
 
