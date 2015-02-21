@@ -447,10 +447,12 @@ void process_ds_distance(cs_Lab_t *Lab, cs_Lab_t *Lab_target, char *power) {
         case power_off:
           *power = power_off_to_on;
           Lab_target->L = Lab_stored.L;
+          Lab->L = Lab_stored.L;
           break;
         case power_off_to_on:
           *power = power_on_to_off;
           Lab_target->L = 0;
+          Lab->L = 0;
           break;
         case power_on:
           *power = power_on_to_off;
@@ -458,10 +460,12 @@ void process_ds_distance(cs_Lab_t *Lab, cs_Lab_t *Lab_target, char *power) {
           Lab_stored.a = Lab_target->a;
           Lab_stored.b = Lab_target->b;
           Lab_target->L = 0;
+          Lab->L = 0;
           break;
         case power_on_to_off:
           *power = power_off_to_on;
           Lab_target->L = Lab_stored.L;
+          Lab->L = Lab_stored.L;
           break;
         }
         //Serial.print("hand removed -> power toggle: ");
@@ -538,11 +542,6 @@ void application()
     captouch.prev_keys_time = millis() - CAP_TIME_WAIT_AFTER_KEY_RELEASE;
   
   process_ds_distance(&Lab, &Lab_target, &power);
-  Serial.println(power, DEC);;
-  /*Serial.print("Lab current: ");
-  cs_print_Lab(&Lab);
-  Serial.print("Lab target:  ");
-  cs_print_Lab(&Lab_target);*/
   
   if (power != power_off) {
     Lab_current.L = approach(Lab_current.L, Lab.L, CS_LAB_STEP_SIZE_L);
